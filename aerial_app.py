@@ -86,6 +86,7 @@ st.write(rgb.size)
 #image=np.array(rgb)
 image = aerial_transforms(rgb)
 
+image=np.array(image)
 image=torch.tensor(image)
 image=image.float()
 
@@ -121,7 +122,7 @@ with col1:
 with col2:
  
    colored_mask=AddTextToMask(mask,target_names)
-   st.image(colored_mask, caption=' Mask'+str(target)+'.png')
+   st.image(colored_mask, caption=' Mask_'+str(target)+'.png')
 
 st.write(indecies.shape)
 
