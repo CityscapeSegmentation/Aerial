@@ -11,8 +11,14 @@ from utils import  target_names
 from utils import  AddTextToMask
 from sklearn.metrics import classification_report
 import pandas as pd
+import os
 
+path='data/val/rgb'
 
+if 'imgList' not in st.session_state:	
+	st.session_state.imgList = os.listdir(path)
+
+	
 
 
 if 'count' not in st.session_state:
@@ -56,12 +62,14 @@ with col2:
    increment = st.button('Next')
    if increment:
        st.session_state.count += 1
-   if st.session_state.count>500:
-      st.session_state.count=500
+   if st.session_state.count>7:
+      st.session_state.count=7
 
 target=int(st.session_state.count)
-rgb_path='data/val/rgb/'+str(target)+'.png'
-mask_path='data/val/mask/'+str(target)+'.png'
+file_name=st.session_state.imgList[ target ]
+
+rgb_path='data/val/rgb/'+file_name
+mask_path='data/val/mask/'+file_name
   
 rgb=Image.open(rgb_path)
 image=np.array(rgb)
