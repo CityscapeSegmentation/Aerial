@@ -74,6 +74,9 @@ file_name=st.session_state.imgList[ target-1 ]
 
 rgb_path='data/val/rgb/'+file_name
 mask_path='data/val/mask/'+file_name
+
+
+print('rgb_path=',rgb_path)
   
 rgb=Image.open(rgb_path)
 image=np.array(rgb)
