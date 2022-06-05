@@ -91,11 +91,14 @@ image = aerial_transforms(rgb)
 
 image=np.array(image)
 image=cv2.resize(image,(512,512))
-
 image=image/255.0
+
+image=np.moveaxis(image,-1,0)
 
 image=torch.tensor(image)
 image=image.float()
+
+
 
 
 st.write(image.shape)
@@ -105,7 +108,7 @@ st.write(image.shape)
 
 
 image=torch.unsqueeze(image, 0).cpu()
-deep_model.cpu()
+#deep_model.cpu()
 
 preds=deep_model(image)
 
