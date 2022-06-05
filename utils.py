@@ -11,6 +11,10 @@ from PIL import ImageDraw,ImageFont,Image
 
 
 
+print('--------------------------------')
+
+
+
     
 
 
