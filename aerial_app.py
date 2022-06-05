@@ -12,6 +12,7 @@ from utils import  AddTextToMask
 from sklearn.metrics import classification_report
 import pandas as pd
 import os
+from  utils import aerial_transforms
 
 path='data/val/rgb'
 
@@ -73,7 +74,7 @@ mask_path='data/val/mask/'+file_name
   
 rgb=Image.open(rgb_path)
 image=np.array(rgb)
-image = trans(image)
+image = aerial_transforms(image)
 
 image=image.float()
 
