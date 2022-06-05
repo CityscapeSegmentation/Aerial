@@ -5,7 +5,7 @@ import matplotlib
 import numpy as np
 from  PIL import Image
 from model import UNet
-from utils import trans
+
 from utils import  givin_colors
 from utils import  target_names
 from utils import  AddTextToMask
