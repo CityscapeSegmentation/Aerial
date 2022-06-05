@@ -83,7 +83,10 @@ rgb=Image.open(rgb_path)
 #image=np.array(rgb)
 image = aerial_transforms(rgb)
 
-image=image.float()
+
+st.write(image.shape)
+
+#image=image.float()
 
 
 
