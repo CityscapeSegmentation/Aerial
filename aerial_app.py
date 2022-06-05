@@ -63,11 +63,11 @@ with col2:
    increment = st.button('Next')
    if increment:
        st.session_state.count += 1
-   if st.session_state.count>7:
-      st.session_state.count=7
+   if st.session_state.count>6:
+      st.session_state.count=6
 
 target=int(st.session_state.count)
-file_name=st.session_state.imgList[ target ]
+file_name=st.session_state.imgList[ target-1 ]
 
 rgb_path='data/val/rgb/'+file_name
 mask_path='data/val/mask/'+file_name
