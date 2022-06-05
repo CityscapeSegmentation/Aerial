@@ -12,14 +12,10 @@ from PIL import ImageDraw,ImageFont,Image
 
 
     
-trans = transforms.Compose([
-    transforms.ToTensor(),
-         transforms.Normalize(mean=[0.485, 0.456, 0.406],
-                              std=[0.229, 0.224, 0.225])
-])    
 
-target_names=['avoid','ground','road','sidewalk','parking','building','fence or guard rail',
-             'traffic sign or pole','vegetation','terrain','sky','person','vehicle','bike','wall']
+
+
+target_names = ['Water', 'Land', 'Road', 'Building', 'Vegetation', 'Unlabeled']
 
 
 
@@ -268,4 +264,6 @@ color_shift = transforms.ColorJitter(.1,.1,.1,.1)
 blurriness = transforms.GaussianBlur(3, sigma=(0.1, 2.0))
 
 aerial_transforms= transforms.Compose([color_shift, blurriness])
+
+
  
