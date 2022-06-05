@@ -4,6 +4,8 @@ import torch
 import matplotlib
 import numpy as np
 from  PIL import Image
+import cv2
+
 from model import UNet
 
 from utils import  givin_colors
