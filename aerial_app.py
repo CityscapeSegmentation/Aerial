@@ -81,7 +81,7 @@ print('rgb_path=',rgb_path)
   
 rgb=Image.open(rgb_path)
 #image=np.array(rgb)
-image = aerial_transforms(image)
+image = aerial_transforms(rgb)
 
 image=image.float()
 
