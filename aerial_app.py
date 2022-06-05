@@ -25,13 +25,16 @@ if 'imgList' not in st.session_state:
 if 'count' not in st.session_state:
 	st.session_state.count = 1
 
-if 'flag' not in st.session_state:
-	#st.session_state.model = UNet(15)	
-	dee_model= UNet(n_channels=3, n_classes=6, bilinear=True)
-	#deep_model.cpu()
-	deep_model.load_state_dict(torch.load('weights/unet_cpu.pt',map_location ='cpu'))
-	st.session_state.flag=True
-	st.session_state.model=deep_model
+if 'model' not in st.session_state:
+	try:
+		#st.session_state.model = UNet(15)	
+		dee_model= UNet(n_channels=3, n_classes=6, bilinear=True)
+		deep_model.cpu()
+		deep_model.load_state_dict(torch.load('weights/unet_cpu.pt',map_location ='cpu'))
+		st.session_state.flag=True
+		st.session_state.model=deep_model
+	except exception as e:
+		print(e)
 else:
 	deep_model=st.session_state.model
 
