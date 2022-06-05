@@ -81,7 +81,10 @@ def PlotText(mask_,target_names_list):
         connectivity = 8
         # Perform the operation to get information about regoins!!!
         try:
+            st.write('*************')
+            st.write(thresh.shape)
             output = cv2.connectedComponentsWithStats(thresh, connectivity, cv2.CV_32S)
+            
         except Exception as e:
             st.write(e)
         # Get the results
