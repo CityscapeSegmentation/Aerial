@@ -11,10 +11,6 @@ from PIL import ImageDraw,ImageFont,Image
 
 
 
-print('--------------------------------')
-
-
-
     
 
 
@@ -84,13 +80,12 @@ def PlotText(mask_,target_names_list):
         # You need to choose 4 or 8 for connectivity type
         connectivity = 8
         # Perform the operation to get information about regoins!!!
-        try:
-            st.write('*************')
-            st.write(thresh.shape)
-            output = cv2.connectedComponentsWithStats(thresh, connectivity, cv2.CV_32S)
-            
-        except Exception as e:
-            st.write(e)
+        #try:
+        if len(thresh.shape)>2:
+                 thresh=thresh[:,:,0]
+        output = cv2.connectedComponentsWithStats(thresh, connectivity, cv2.CV_32S)
+       # except Exception as e:
+       #     st.write(e)
         # Get the results
         # The first cell is the number of labels
         num_labels = output[0]
@@ -126,6 +121,9 @@ def PlotText(mask_,target_names_list):
         im=cv2.merge((thresh,thresh,thresh))
         #print(im.shape)
         Flag=False
+
+        print('f=',f)
+        print(target_names_list)
         current_class=target_names_list[f]
         
         text_pos[current_class]=[]

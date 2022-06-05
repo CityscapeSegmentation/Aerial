@@ -126,6 +126,8 @@ mask=Image.open(mask_path)
 
 mask=np.array(mask,dtype=np.uint8)
 
+mask=cv2.resize(mask,(512,512))
+
 shape=mask.shape
 with col1:
    st.image(rgb, caption=str(target)+'.png')
@@ -136,28 +138,33 @@ with col2:
 
 st.write(indecies.shape)
 
-# pred=np.array(indecies,dtype=np.uint8)
+pred=np.array(indecies,dtype=np.uint8)
 
 
-# #colored_pred=givin_colors[colored_pred]
-# #colored_pred=colored_pred.reshape((shape[0],shape[1],3))
-# colored_pred=AddTextToMask(pred,target_names)
+#colored_pred=givin_colors[colored_pred]
+#colored_pred=colored_pred.reshape((shape[0],shape[1],3))
+colored_pred=AddTextToMask(pred,target_names)
 	
-# st.image(colored_pred, caption=' Preds'+str(target)+'.png')
+st.image(colored_pred, caption=' Preds'+str(target)+'.png')
 
 
-# #st.write(classification_report(mask.reshape(-1), pred.reshape(-1), target_names=target_names))
-
-# #print(classification_report(mask.reshape(-1), pred.reshape(-1),target_names=target_names)        )
-
-# report_dict=classification_report(mask.reshape(-1), pred.reshape(-1),target_names=target_names, output_dict=True)
+print('mask shape',mask.shape)
+print('pred shape',pred.shape)
 
 
-# df=pd.DataFrame(report_dict)
 
-# df1=df.T
+#st.write(classification_report(mask.reshape(-1), pred.reshape(-1), target_names=target_names))
 
-# st.dataframe(df1)
+#print(classification_report(mask.reshape(-1), pred.reshape(-1),target_names=target_names)        )
+
+report_dict=classification_report(mask.reshape(-1), pred.reshape(-1),target_names=target_names, output_dict=True)
+
+
+df=pd.DataFrame(report_dict)
+
+df1=df.T
+
+st.dataframe(df1)
 
  
  
