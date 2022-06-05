@@ -33,7 +33,7 @@ if 'model' not in st.session_state:
 		deep_model.load_state_dict(torch.load('weights/unet_cpu.pt',map_location ='cpu'))
 		st.session_state.flag=True
 		st.session_state.model=deep_model
-	except exception as e:
+	except Exception as e:
 		print(e)
 else:
 	deep_model=st.session_state.model
