@@ -86,7 +86,12 @@ st.write(rgb.size)
 #image=np.array(rgb)
 image = aerial_transforms(rgb)
 
+
 image=np.array(image)
+image=cv2.resize(image,(512,512))
+
+image=image/255.0
+
 image=torch.tensor(image)
 image=image.float()
 
