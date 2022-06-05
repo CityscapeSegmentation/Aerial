@@ -86,10 +86,13 @@ st.write(rgb.size)
 #image=np.array(rgb)
 image = aerial_transforms(rgb)
 
+image=torch.tensor(image)
+image=image.float()
+
 
 st.write(image.shape)
 
-#image=image.float()
+
 
 
 
