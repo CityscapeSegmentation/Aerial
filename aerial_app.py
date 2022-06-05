@@ -19,6 +19,7 @@ path='data/val/rgb'
 if 'imgList' not in st.session_state:	
 	st.session_state.imgList = os.listdir(path)
 
+
 	
 
 
@@ -79,7 +80,7 @@ mask_path='data/val/mask/'+file_name
 print('rgb_path=',rgb_path)
   
 rgb=Image.open(rgb_path)
-image=np.array(rgb)
+#image=np.array(rgb)
 image = aerial_transforms(image)
 
 image=image.float()
@@ -115,28 +116,28 @@ with col2:
 
 st.write(indecies.shape)
 
-pred=np.array(indecies,dtype=np.uint8)
+# pred=np.array(indecies,dtype=np.uint8)
 
 
-#colored_pred=givin_colors[colored_pred]
-#colored_pred=colored_pred.reshape((shape[0],shape[1],3))
-colored_pred=AddTextToMask(pred,target_names)
+# #colored_pred=givin_colors[colored_pred]
+# #colored_pred=colored_pred.reshape((shape[0],shape[1],3))
+# colored_pred=AddTextToMask(pred,target_names)
 	
-st.image(colored_pred, caption=' Preds'+str(target)+'.png')
+# st.image(colored_pred, caption=' Preds'+str(target)+'.png')
 
 
-#st.write(classification_report(mask.reshape(-1), pred.reshape(-1), target_names=target_names))
+# #st.write(classification_report(mask.reshape(-1), pred.reshape(-1), target_names=target_names))
 
-#print(classification_report(mask.reshape(-1), pred.reshape(-1),target_names=target_names)        )
+# #print(classification_report(mask.reshape(-1), pred.reshape(-1),target_names=target_names)        )
 
-report_dict=classification_report(mask.reshape(-1), pred.reshape(-1),target_names=target_names, output_dict=True)
+# report_dict=classification_report(mask.reshape(-1), pred.reshape(-1),target_names=target_names, output_dict=True)
 
 
-df=pd.DataFrame(report_dict)
+# df=pd.DataFrame(report_dict)
 
-df1=df.T
+# df1=df.T
 
-st.dataframe(df1)
+# st.dataframe(df1)
 
  
  
