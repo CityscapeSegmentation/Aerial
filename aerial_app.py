@@ -80,6 +80,9 @@ mask_path='data/val/mask/'+file_name
 st.write(rgb_path)
   
 rgb=Image.open(rgb_path)
+
+st.write(rgb.size)
+
 #image=np.array(rgb)
 image = aerial_transforms(rgb)
 
