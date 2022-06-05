@@ -289,4 +289,9 @@ class segDataset(torch.utils.data.Dataset):
 
     def __len__(self):
         return len(self.IMG_NAMES)
+    
+color_shift = transforms.ColorJitter(.1,.1,.1,.1)
+blurriness = transforms.GaussianBlur(3, sigma=(0.1, 2.0))
+
+aerial_transforms= transforms.Compose([color_shift, blurriness])
  
