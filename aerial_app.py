@@ -19,8 +19,8 @@ if 'count' not in st.session_state:
 	st.session_state.count = 1
 
 if 'flag' not in st.session_state:
-	#st.session_state.model = UNet(15)
-	deep_model=UNet(15)
+	#st.session_state.model = UNet(15)	
+	dee_model= UNet(n_channels=3, n_classes=6, bilinear=True).to(device)
 	deep_model.cpu()
 	deep_model.load_state_dict(torch.load('weights/best_cpu2.pt',map_location ='cpu'))
 	st.session_state.flag=True
