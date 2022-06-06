@@ -91,6 +91,7 @@ image = aerial_transforms(rgb)
 
 image=np.array(image)
 image=cv2.resize(image,(512,512))
+image_copy=image.copy()
 image=image/255.0
 
 image=np.moveaxis(image,-1,0)
@@ -130,7 +131,7 @@ mask=cv2.resize(mask,(512,512))
 
 shape=mask.shape
 with col1:
-   st.image(rgb, caption=str(target)+'.png')
+   st.image(image_copy, caption=str(target)+'.png')
 with col2:
  
    colored_mask=AddTextToMask(mask,target_names)
