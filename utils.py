@@ -124,8 +124,8 @@ def PlotText(mask_,target_names_list):
         #print(im.shape)
         Flag=False
 
-        print('f=',f)
-        print(target_names_list)
+        #print('f=',f)
+        #print(target_names_list)
         current_class=target_names_list[f]
         
         text_pos[current_class]=[]
