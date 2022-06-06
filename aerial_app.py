@@ -69,8 +69,8 @@ with col2:
    increment = st.button('Next')
    if increment:
        st.session_state.count += 1
-   if st.session_state.count>6:
-      st.session_state.count=6
+   if st.session_state.count>72:
+      st.session_state.count=72
 
 target=int(st.session_state.count)
 file_name=st.session_state.imgList[ target-1 ]
