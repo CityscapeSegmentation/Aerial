@@ -66,6 +66,7 @@ for c in tmp:
         #print(c)
 
 givin_colors=np.array(givin_colors)
+givin_colors=np.fliplr(givin_colors)
 #print(givin_colors.shape)
 
 
