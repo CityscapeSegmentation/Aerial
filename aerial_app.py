@@ -151,6 +151,9 @@ st.image(colored_pred, caption=' Preds'+str(target)+'.png')
 print('mask shape',mask.shape)
 print('pred shape',pred.shape)
 
+for i in range(6):
+   pred[0,i]=i
+
 
 
 #st.write(classification_report(mask.reshape(-1), pred.reshape(-1), target_names=target_names))
